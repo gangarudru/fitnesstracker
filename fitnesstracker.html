@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Fitness Tracker</h1>
+    </header>
+    <main>
+
+        <section id="activity">
+            <h2>Activity Tracking</h2>
+            <p>Steps: <span id="steps">0</span></p>
+            <p>Calories: <span id="calories">0</span></p>
+            <button id="addStep">Add Step</button>
+        </section>
+
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const stepsElement = document.getElementById('steps');
+            const addStepButton = document.getElementById('addStep');
+            const caloriesElement = document.getElementById('calories');
+
+            let steps = 0;
+
+            // Calorie calculation constants (this is a simple example)
+            const STEPS_PER_CALORIE = 20;
+
+            // Update the steps count and calories in the UI
+            function updateUI() {
+                stepsElement.textContent = steps;
+                const calories = Math.floor(steps / STEPS_PER_CALORIE);
+                caloriesElement.textContent = calories;
+            }
+
+            // Event listener for the "Add Step" button
+            addStepButton.addEventListener('click', function () {
+                steps++;
+                updateUI();
+            });
+
+            // Initialize the UI
+            updateUI();
+        });
+
+
+    </script>
+</body>
+
+</html>
